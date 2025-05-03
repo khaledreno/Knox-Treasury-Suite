@@ -30,9 +30,6 @@ public class UsersServices {
        return userRepo.existsByUsername(username);
     }
 
-//    public UserEntity getUserByUsername(String username) {
-//        return userRepo.findByUsername(username).
-//    }
 
     public UserEntity getUserByUsername(String username) {
         return userRepo.findByUsername(username)
@@ -52,8 +49,16 @@ public class UsersServices {
             .build();
        log.info("New user created with id {}", user.getId());
         return userRepo.save(uservar);
+    }
 
 
+    public String deleteUser(String username) {
+//        if (!userRepo.existsByUsername(username)) {
+//            throw new EntityNotFoundException("User with username " + username + " not found");
+//        }
+        userRepo.deleteByUsername(username);
+        log.info("User {} deleted", username);
+        return "User with username: " + username + " was deleted";
     }
 
     }

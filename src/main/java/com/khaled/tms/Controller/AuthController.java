@@ -5,9 +5,7 @@ import com.khaled.tms.Services.UsersServices;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatusCode;
 import org.springframework.http.ResponseEntity;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 @RestController
 public class AuthController {
@@ -22,6 +20,11 @@ public class AuthController {
         usersServices.addNewUser(userEntity);
         return ResponseEntity.ok(userEntity);
 }
-//        return ResponseEntity.ok()
 
+
+@DeleteMapping("/user")
+    public ResponseEntity<String> DeleteUser(@RequestBody String userName) {
+        usersServices.deleteUser(userName);
+    return ResponseEntity.ok("User '" + userName + "' deleted successfully.");
+}
 }
