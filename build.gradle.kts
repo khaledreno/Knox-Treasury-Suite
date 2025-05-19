@@ -40,6 +40,7 @@ dependencies {
 	testRuntimeOnly("org.junit.platform:junit-platform-launcher")
 	implementation("com.fasterxml.jackson.core:jackson-databind:2.18.3")
 	implementation ("com.fasterxml.jackson.core:jackson-databind")
+	implementation ("org.springframework.boot:spring-boot-starter-aop")
 
 	implementation("org.json:json:20240303")
 

@@ -7,6 +7,8 @@ import org.springframework.http.HttpStatusCode;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
+import java.util.List;
+
 @RestController
 public class AuthController {
 
@@ -26,5 +28,10 @@ public class AuthController {
     public ResponseEntity<String> DeleteUser(@RequestBody String userName) {
         usersServices.deleteUser(userName);
     return ResponseEntity.ok("User '" + userName + "' deleted successfully.");
+}
+
+@GetMapping("/users")
+    public List<UserEntity> getUser() {
+        return usersServices.getAllUsers();
 }
 }

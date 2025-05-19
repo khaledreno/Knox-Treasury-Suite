@@ -2,7 +2,7 @@ package com.khaled.tms.Enums;
 
 public enum DealStatus
 {
-    DRAFT,
+    PENDING,
     VALID,
     EXECUTED,
     APPROVED,
