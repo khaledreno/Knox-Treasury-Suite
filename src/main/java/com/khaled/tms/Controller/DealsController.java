@@ -17,6 +17,7 @@ public class DealsController {
     @Autowired
     private DealsService dealsService;
 
+
     @GetMapping("/deals")
     public List<DealsEntity> getAllDeals() {
         return dealsService.fetchAllDeals();
