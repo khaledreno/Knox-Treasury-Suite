@@ -44,6 +44,10 @@ dependencies {
 
 	implementation("org.json:json:20240303")
 
+	implementation ("org.mapstruct:mapstruct:1.6.3")
+
+	annotationProcessor ("org.mapstruct:mapstruct-processor:1.6.3")
+
 
 }
 

@@ -1,9 +1,10 @@
-package com.khaled.tms.Entity;
+package com.khaled.tms.DealsComponent;
 
 import com.fasterxml.jackson.annotation.JsonFormat;
+import com.khaled.tms.Entity.DealDirection;
+import com.khaled.tms.Entity.DealerEntity;
 import com.khaled.tms.Enums.DealStatus;
 import com.khaled.tms.Enums.DealType;
-import jakarta.jws.soap.SOAPBinding;
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
@@ -13,7 +14,6 @@ import org.hibernate.annotations.CreationTimestamp;
 
 import java.math.BigDecimal;
 import java.time.LocalDateTime;
-import java.util.Date;
 
 @Entity
 @Table(name = "deals")

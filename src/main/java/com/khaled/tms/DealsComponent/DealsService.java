@@ -1,8 +1,6 @@
-package com.khaled.tms.Services;
+package com.khaled.tms.DealsComponent;
 
-import com.khaled.tms.Entity.DealsEntity;
 import com.khaled.tms.Enums.DealStatus;
-import com.khaled.tms.HolidayComponent.HolidaysRepo;
 import com.khaled.tms.HolidayComponent.HolidaysService;
 import com.khaled.tms.Repo.DealsRepo;
 import lombok.extern.slf4j.Slf4j;
@@ -10,11 +8,8 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import java.time.LocalDate;
-import java.time.LocalDateTime;
 import java.time.ZoneId;
-import java.util.Date;
 import java.util.List;
-import java.util.Optional;
 
 @Slf4j
 @Service

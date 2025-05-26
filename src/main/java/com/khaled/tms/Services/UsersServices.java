@@ -1,7 +1,7 @@
 package com.khaled.tms.Services;
 
 import com.khaled.tms.Entity.UserEntity;
-import com.khaled.tms.Repo.UserRepo;
+import com.khaled.tms.DealsComponent.UserRepo;
 import jakarta.persistence.EntityNotFoundException;
 import lombok.extern.slf4j.Slf4j;
 import org.slf4j.Logger;
@@ -11,7 +11,6 @@ import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
 import java.util.List;
-import java.util.Optional;
 
 @Slf4j
 @Service
