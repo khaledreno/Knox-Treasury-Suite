@@ -2,7 +2,7 @@ package com.khaled.tms.DealsComponent;
 
 import com.fasterxml.jackson.annotation.JsonFormat;
 import com.khaled.tms.Entity.DealDirection;
-import com.khaled.tms.Entity.DealerEntity;
+import com.khaled.tms.TraderComponent.DealerEntity;
 import com.khaled.tms.Enums.DealStatus;
 import com.khaled.tms.Enums.DealType;
 import jakarta.persistence.*;
@@ -21,7 +21,7 @@ import java.time.LocalDateTime;
 @Data
 @NoArgsConstructor
 @AllArgsConstructor
-public class DealsEntity {
+public class   DealsEntity {
 
 @Id
 @GeneratedValue(strategy = GenerationType.IDENTITY)

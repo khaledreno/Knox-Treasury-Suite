@@ -3,6 +3,10 @@ package com.khaled.tms.DealsComponent;
 import com.khaled.tms.Enums.DealStatus;
 import com.khaled.tms.HolidayComponent.HolidaysService;
 import com.khaled.tms.Repo.DealsRepo;
+import com.khaled.tms.TraderComponent.DealerEntity;
+import com.khaled.tms.TraderComponent.DealerRepo;
+import com.khaled.tms.TraderComponent.DealerService;
+import jakarta.transaction.Transactional;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -20,10 +24,23 @@ private DealsRepo dealsRepo;
 
 @Autowired
 private HolidaysService holidaysService;
+private DealsMapper dealsMapper;
 
-public DealsService(DealsRepo dealsRepo,HolidaysService holidaysService) {
+private DealerEntity dealerEntity;
+private DealerRepo dealerRepo;
+private DealerService dealerService;
+
+public DealsService(DealsRepo dealsRepo,
+                    HolidaysService holidaysService,
+                    DealsMapper dealsMapper,
+                    DealerRepo dealerRepo,
+                    DealerService dealerService) {
     this.dealsRepo = dealsRepo;
     this.holidaysService = holidaysService;
+    this.dealsMapper = dealsMapper;
+    this.dealerEntity = dealerEntity;
+    this.dealerRepo = dealerRepo;
+    this.dealerService = dealerService;
 }
 
 public DealsRepo getDealById(int id) {
@@ -35,7 +52,7 @@ public List<DealsEntity> fetchAllDeals() {
     return dealsRepo.findAll();
 }
 
-
+@Transactional
 public String saveDeal(DealsEntity dealsEntity) {
 //    dealsEntity.setValueDate(LocalDateTime.now());
 //    log.error("Data isss: "+dealsEntity.getValueDate());
@@ -54,9 +71,31 @@ public String saveDeal(DealsEntity dealsEntity) {
         throw new RuntimeException("Holiday found unable to save deal");
     }
    dealsEntity.setDealStatus(DealStatus.PENDING);
+
+//    //    int dealsCount= dealsEntity.getDealer().getDealsCount();
+//    int dealsCount= dealsEntity.getDealer().getDealsCount();
+//    log.info("Deals count: {}", dealsCount);
+//    dealsCount++;
+//    log.info("Deals count after incr: {}", dealsCount);
+//
+//    dealsEntity.getDealer().setDealsCount(dealsCount);
+
+//    DealerEntity dealer = dealerRepo.findByName(dealsEntity.getDealer().getName());
+//    int dealscount = dealer.getDealsCount();
+//    dealer.setDealsCount(dealscount + 1);
+//    dealerRepo.save(dealer);
+//    log.info("new count "+dealer.getDealsCount());
+
+
+    //TODO:BROKEN AND LIST OF DEALS IN USER REMOVE IT!
+dealerService.incrementDealsforDealer(dealsEntity);
+    //connect deals with dea
     dealsRepo.save(dealsEntity);
     return "Deals saved successfully with ID "+dealsEntity.getId();
 }
+
+
+
 
 //public boolean IsDealExist(Integer dealId) {
 //    return dealsRepo.existsById(dealId);

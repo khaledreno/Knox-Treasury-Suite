@@ -14,7 +14,7 @@ public class LoggingAspect {
     @Around("execution(* com.khaled.tms..*(..))")
     public Object logExecutionTime(ProceedingJoinPoint joinPoint) throws Throwable {
         long start = System.currentTimeMillis();
-        Object result = joinPoint.proceed();  // proceed with the actual method
+        Object result = joinPoint. proceed();  // proceed with the actual method
         long duration = System.currentTimeMillis() - start;
 
         log.info("Method {} executed in {} ms", joinPoint.getSignature(), duration);

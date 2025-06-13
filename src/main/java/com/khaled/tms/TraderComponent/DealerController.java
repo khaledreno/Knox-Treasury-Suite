@@ -1,9 +1,8 @@
-package com.khaled.tms.Controller;
+package com.khaled.tms.TraderComponent;
 
 
-import com.khaled.tms.Entity.DealerEntity;
-import com.khaled.tms.Services.DealerService;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RestController;
@@ -24,4 +23,10 @@ public class DealerController {
     public String AddDealer(@RequestBody DealerEntity dealerEntity) {
         return dealerService.addDealer(dealerEntity);
     }
+
+    @GetMapping("/dealer")
+    public List<DealerEntity> getAllDealers() { return dealerService.getAllDealers();
+    }
 }
+
+

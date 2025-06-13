@@ -1,4 +1,4 @@
-package com.khaled.tms.Entity;
+package com.khaled.tms.TraderComponent;
 
 import com.khaled.tms.DealsComponent.DealsEntity;
 import jakarta.persistence.*;
@@ -19,12 +19,12 @@ public class DealerEntity {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-  private Integer dealerId;
+  private long dealerId;
    private String name;
    private int DealsCount;
 
 
-    @OneToMany(mappedBy = "dealer") // ✅ match the field in DealsEntity
-    private List<DealsEntity> listOfDeals;   // ✅ correct collection type
+//    @OneToMany(mappedBy = "dealer") // ✅ match the field in DealsEntity
+//    private List<DealsEntity> listOfDeals;   // ✅ correct collection type
 
 }
